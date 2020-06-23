@@ -26,22 +26,11 @@ car_index = pickle.loads(open(r"./results/class_index.pickle", "rb").read())
 car_labels = pickle.loads(open(r"./results/class_names.pickle", "rb").read())
 
 with h5py.File(r"./results/ResNetValOutput.hdf5", "r") as f:
-	print(f"{f.keys()}")
 	a_group_key = list(f.keys())[0]
 
 	#get the data
 	data = list(f[a_group_key])
-	print(data)
 	
-
-#reading pickle file
-for item in car_index:
-	print(f"{item}")
-
-
-#print(f"{train_input.keys()}")
-#print(f"{train_input['label_names']}")
-#print(f"{train_input.values()}")
 
 #make the model - experiement using multiple different ones and experiment which one is better
 class_name = ["Nearest Neighbors", "Linear SVM", "RBF SVM", "Gaussian Process",
